@@ -1,0 +1,17 @@
+[
+  {
+    "name": "John Doe",
+    "dateOfBirth": "1990-01-01",
+    "address": "123 Main St, Springfield"
+  },
+  {
+    "name": "Jane Smith",
+    "dateOfBirth": "1985-05-15",
+    "address": "456 Oak Ave, Springfield"
+  },
+  {
+    "name": "Alice Johnson",
+    "dateOfBirth": "1992-12-23",
+    "address": "789 Pine Rd, Springfield"
+  }
+]
