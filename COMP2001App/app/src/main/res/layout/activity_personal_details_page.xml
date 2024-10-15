@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/loginbackground"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/PersonalInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Personal Information" />
+
+        <EditText
+            android:id="@+id/LegalName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="LegalName"
+            android:text="Full Name" />
+
+        <EditText
+            android:id="@+id/Username"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:hint="Username"
+            android:text="Username" />
+
+        <EditText
+            android:id="@+id/EmailAdress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:text="Email.Adress@gmail.com" />
+
+        <EditText
+            android:id="@+id/PhoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:hint="Phone Number"
+            android:text="0118,999,881,999,119,725,3" />
+
+        <EditText
+            android:id="@+id/Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Address"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:text="54 St Johns Road\nSevenoaks\nKent\nTN133LP"
+            />
+
+        <TextView
+            android:id="@+id/CurrentJob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current Position" />
+
+        <EditText
+            android:id="@+id/JobTitle"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="Job Title"
+            android:text="Proffessional Fraud" />
+
+        <EditText
+            android:id="@+id/JobSalary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="JobSalary"
+            android:text="£0.00" />
+
+        <EditText
+            android:id="@+id/JobOffice"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:hint="Office"
+            android:text="Fraudnatic Office Berlin" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Changes" />
+
+        <Button
+            android:id="@+id/Return"
+            android:layout_width="177dp"
+            android:layout_height="wrap_content"
+            android:text="Return" />
+    </LinearLayout>
+
+</RelativeLayout>
