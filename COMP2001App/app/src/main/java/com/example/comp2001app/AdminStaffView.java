@@ -26,8 +26,12 @@ public class AdminStaffView extends AppCompatActivity {
 
         // Create a list of users (This data could come from a database)
         userList = new ArrayList<>();
-        userList.add(new User("John Doe", R.drawable.ic_launcher_foreground));
-        userList.add(new User("Jane Smith", R.drawable.ic_launcher_foreground));
+        userList.add(new User("Faker", R.drawable.baseline_account_circle_24));
+        userList.add(new User("Zeus", R.drawable.baseline_account_circle_24));
+        userList.add(new User("Gumayushi", R.drawable.baseline_account_circle_24));
+        userList.add(new User("Keria", R.drawable.baseline_account_circle_24));
+        userList.add(new User("Oner", R.drawable.baseline_account_circle_24));
+        userList.add(new User("RatMan", R.drawable.baseline_account_circle_24));
         // Add more users here dynamically if needed
 
         // Set up the adapter with user data
