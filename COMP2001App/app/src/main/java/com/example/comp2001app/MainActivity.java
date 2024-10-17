@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     Button loginButton;
-
+    String Username;  // Declare Username as a class member
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,23 +28,28 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // buttons and text
+        // Initialize buttons and text fields
         loginButton = findViewById(R.id.Login_Button);
         EditText Usernamegiven = findViewById(R.id.username_input);
 
+        // Set OnClickListener for the login button
         loginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                String Username = Usernamegiven.getText().toString();
-                if(Username.equals("Staff")){
+                // Retrieve the username entered by the user
+                Username = Usernamegiven.getText().toString(); // Assign Username to the member variable
+
+                // Pass the Username to the next activity
+                if (Username.equals("Staff")) {
                     Intent stafflogin = new Intent(getApplicationContext(), StaffPortal.class);
+                    stafflogin.putExtra("Username", Username);  // Pass Username to StaffPortal
                     startActivity(stafflogin);
-                } else{
+                } else {
                     Intent adminlogin = new Intent(getApplicationContext(), AdminPortal.class);
+                    adminlogin.putExtra("Username", Username);  // Pass Username to AdminPortal
                     startActivity(adminlogin);
                 }
-
             }
         });
     }
