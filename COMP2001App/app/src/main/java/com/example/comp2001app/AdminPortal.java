@@ -13,8 +13,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class AdminPortal extends AppCompatActivity {
 
-    Button StaffViewButton;  // Declaration of the button
+    Button StaffViewButton;
     Button PersonalDetails;
+
+    Button NotificationButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,7 @@ public class AdminPortal extends AppCompatActivity {
         // Initialize the button from layout
         StaffViewButton = findViewById(R.id.StaffMangement);
         PersonalDetails = findViewById(R.id.Info_Button);
+        NotificationButton = findViewById(R.id.Notifications);
 
         // Set onClickListener to handle button press
         StaffViewButton.setOnClickListener(new View.OnClickListener() {
@@ -50,6 +53,15 @@ public class AdminPortal extends AppCompatActivity {
                 // Create an Intent to start the PersonalDetailsPage activity
                 Intent PersonalPage = new Intent(getApplicationContext(), PersonalDetailsPage.class);
                 startActivity(PersonalPage);
+            }
+        });
+
+        // Set a click listener on the button
+        NotificationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent AdminNotifications = new Intent(getApplicationContext(), AdminNotifications.class);
+                startActivity(AdminNotifications);
             }
         });
     }

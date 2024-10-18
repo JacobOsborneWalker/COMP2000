@@ -26,29 +26,25 @@
             android:id="@+id/LegalName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="LegalName"
-            android:text="Full Name" />
+            android:hint="Legal Name" />
 
         <EditText
             android:id="@+id/Username"
             android:layout_width="match_parent"
-            android:layout_height="63dp"
-            android:hint="Username"
-            android:text="Username" />
+            android:layout_height="wrap_content"
+            android:hint="Username" />
 
         <EditText
-            android:id="@+id/EmailAdress"
+            android:id="@+id/EmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
-            android:text="Email.Adress@gmail.com" />
+            android:hint="Email" />
 
         <EditText
             android:id="@+id/PhoneNumber"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:hint="Phone Number"
-            android:text="+447590071100" />
+            android:layout_height="wrap_content"
+            android:hint="Phone Number" />
 
         <EditText
             android:id="@+id/Address"
@@ -56,9 +52,7 @@
             android:layout_height="wrap_content"
             android:hint="Address"
             android:inputType="textMultiLine"
-            android:maxLines="5"
-            android:text="54 St Johns Road\nSevenoaks\nKent\nTN133LP"
-            />
+            android:maxLines="5" />
 
         <TextView
             android:id="@+id/CurrentJob"
@@ -69,23 +63,20 @@
         <EditText
             android:id="@+id/JobTitle"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:hint="Job Title"
-            android:text="Proffessional Fraud" />
+            android:layout_height="wrap_content"
+            android:hint="Job Title" />
 
         <EditText
             android:id="@+id/JobSalary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="JobSalary"
-            android:text="£0.00" />
+            android:hint="Job Salary" />
 
         <EditText
             android:id="@+id/JobOffice"
             android:layout_width="match_parent"
-            android:layout_height="62dp"
-            android:hint="Office"
-            android:text="Fraudnatic Office Berlin" />
+            android:layout_height="wrap_content"
+            android:hint="Office" />
 
         <Button
             android:id="@+id/saveButton"
