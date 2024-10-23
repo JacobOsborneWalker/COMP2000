@@ -34,16 +34,12 @@ public class AdminStaffView extends AppCompatActivity {
         button8.setOnClickListener(v -> openDetailsPage(button8));
     }
 
-    // Method to open the details page and pass the button name
     private void openDetailsPage(Button button) {
-        // Set the click listener for each button
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Get the button's text (the name displayed on the button)
                 String buttonText = button.getText().toString();
 
-                // Start the next activity and pass the button's name
                 Intent intent = new Intent(AdminStaffView.this, individualstaffview.class);
                 intent.putExtra("button_name", buttonText);
                 startActivity(intent);

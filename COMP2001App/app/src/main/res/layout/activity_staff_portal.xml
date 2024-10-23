@@ -21,6 +21,14 @@
             android:layout_height="160dp"
             android:src="@drawable/baseline_account_circle_24"/>
 
+
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welcome, User"
+            android:textAlignment="center"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

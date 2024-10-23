@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.content.SharedPreferences;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +17,6 @@ public class AdminPortal extends AppCompatActivity {
 
     Button StaffViewButton;
     Button PersonalDetails;
-
     Button NotificationButton;
 
     @Override
@@ -24,39 +25,46 @@ public class AdminPortal extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_admin_portal);
 
-        // Adjust for system insets
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Initialize the button from layout
+        SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
+        String fullName = sharedPreferences.getString("FullName", "Guest");
+        String username = sharedPreferences.getString("Username", "Guest");
+
+        // welcome message
+        TextView welcomeTextView = findViewById(R.id.welcome_text);
+        welcomeTextView.setText("Welcome, " + fullName + "!");
+
+        // buttons
         StaffViewButton = findViewById(R.id.StaffMangement);
         PersonalDetails = findViewById(R.id.Info_Button);
         NotificationButton = findViewById(R.id.Notifications);
 
-        // Set onClickListener to handle button press
+        // staff view
         StaffViewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the AdminStaffView activity when the button is clicked
                 Intent StaffPage = new Intent(getApplicationContext(), AdminStaffView.class);
                 startActivity(StaffPage);
             }
         });
 
-        // Set a click listener on the button
+        // personal details
         PersonalDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to start the PersonalDetailsPage activity
                 Intent PersonalPage = new Intent(getApplicationContext(), PersonalDetailsPage.class);
+                PersonalPage.putExtra("Username", username);
+                PersonalPage.putExtra("FullName", fullName);
                 startActivity(PersonalPage);
             }
         });
 
-        // Set a click listener on the button
+        // notifications
         NotificationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
