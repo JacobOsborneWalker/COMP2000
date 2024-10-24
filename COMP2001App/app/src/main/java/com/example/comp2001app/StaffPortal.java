@@ -54,6 +54,7 @@ public class StaffPortal extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent Bookings = new Intent(getApplicationContext(), StaffBookings.class);
+                Bookings.putExtra("FullName", fullName);
                 startActivity(Bookings);
             }
         });
