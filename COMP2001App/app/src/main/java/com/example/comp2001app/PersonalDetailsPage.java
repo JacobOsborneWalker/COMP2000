@@ -28,27 +28,32 @@ public class PersonalDetailsPage extends AppCompatActivity {
             return insets;
         });
 
-       // name and username
+        // Retrieve name and username
         String username = getIntent().getStringExtra("Username");
         String fullName = getIntent().getStringExtra("FullName");
+        String userType = getIntent().getStringExtra("UserType");
+
+        // Find and set TextViews
         TextView usernameTextView = findViewById(R.id.Username);
         TextView nameTextView = findViewById(R.id.LegalName);
+
+
         usernameTextView.setText(username);
         nameTextView.setText(fullName);
 
-        // return button
+
+        // Return button
         returnButton = findViewById(R.id.Return);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent;
-                if (username.equalsIgnoreCase("staff")) {
-                    intent = new Intent(getApplicationContext(), StaffPortal.class);
-                } else {
-                    intent = new Intent(getApplicationContext(), AdminPortal.class);
-                }
-                startActivity(intent);
+        returnButton.setOnClickListener(v -> {
+            Intent intent;
+            if (userType != null && userType.equalsIgnoreCase("staff")) {
+                intent = new Intent(getApplicationContext(), StaffPortal.class);
+            } else {
+                intent = new Intent(getApplicationContext(), AdminPortal.class);
             }
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            finish();
         });
     }
 }

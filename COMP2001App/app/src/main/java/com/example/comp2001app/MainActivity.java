@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,40 +32,59 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton = findViewById(R.id.Login_Button);
         EditText usernameInput = findViewById(R.id.username_input);
+        EditText passwordInput = findViewById(R.id.password_input);
 
-        // login button
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = usernameInput.getText().toString().trim();
+        // Login button
+        loginButton.setOnClickListener(v -> {
+            String username = usernameInput.getText().toString().trim();
+            String password = passwordInput.getText().toString().trim();
 
-                String fullName = "";
-                // staff name
-                if (username.equalsIgnoreCase("staff")) {
-                    fullName = "John Smith";
+            String fullName = "";
+            String userType = "";
+
+          // staff
+            if (username.equalsIgnoreCase("JohnSmith7")) {
+                fullName = "John Smith";
+                userType = "staff";
+                if (!password.equals("Password")) {
+                    Toast.makeText(MainActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                // admin name
-                else if (username.equalsIgnoreCase("admin")) {
-                    fullName = "Dave Mathews";
+                // admin
+            } else if (username.equalsIgnoreCase("DaveMathews1")) {
+                fullName = "Dave Mathews";
+                userType = "admin";
+                if (!password.equals("AdminPassword")) {
+                    Toast.makeText(MainActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
+                    return;
                 }
-
-                if (!fullName.isEmpty()) {
-                    SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("Username", username);
-                    editor.putString("FullName", fullName);
-                    editor.apply();
-
-                    // admin or staff
-                    Intent intent;
-                    if (username.equalsIgnoreCase("staff")) {
-                        intent = new Intent(getApplicationContext(), StaffPortal.class);
-                    } else {
-                        intent = new Intent(getApplicationContext(), AdminPortal.class);
-                    }
-                    startActivity(intent);
-                }
+                // incorrect username
+            } else {
+                Toast.makeText(MainActivity.this, "Invalid Username", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            // Details
+            SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("Username", username);
+            editor.putString("FullName", fullName);
+            editor.putString("UserType", userType);
+            editor.apply();
+
+
+            Intent intent;
+            if (userType.equalsIgnoreCase("staff")) {
+                intent = new Intent(getApplicationContext(), StaffPortal.class);
+            } else {
+                intent = new Intent(getApplicationContext(), AdminPortal.class);
+            }
+
+            intent.putExtra("Username", username);
+            intent.putExtra("FullName", fullName);
+            intent.putExtra("UserType", userType);
+
+            startActivity(intent);
         });
     }
 }

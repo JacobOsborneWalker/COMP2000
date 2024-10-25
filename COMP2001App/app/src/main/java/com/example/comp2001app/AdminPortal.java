@@ -32,8 +32,11 @@ public class AdminPortal extends AppCompatActivity {
         });
 
         SharedPreferences sharedPreferences = getSharedPreferences("user_pref", MODE_PRIVATE);
-        String fullName = sharedPreferences.getString("FullName", "Guest");
-        String username = sharedPreferences.getString("Username", "Guest");
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("Username");
+        String fullName = intent.getStringExtra("FullName");
+        String userType = intent.getStringExtra("UserType");
+
 
         // welcome message
         TextView welcomeTextView = findViewById(R.id.welcome_text);
@@ -60,6 +63,7 @@ public class AdminPortal extends AppCompatActivity {
                 Intent PersonalPage = new Intent(getApplicationContext(), PersonalDetailsPage.class);
                 PersonalPage.putExtra("Username", username);
                 PersonalPage.putExtra("FullName", fullName);
+                PersonalPage.putExtra("userType", userType);
                 startActivity(PersonalPage);
             }
         });

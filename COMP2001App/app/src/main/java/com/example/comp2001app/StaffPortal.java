@@ -17,6 +17,7 @@ public class StaffPortal extends AppCompatActivity {
 
     Button PersonalDetails;
     Button BookingsPage;
+    Button NotificationsPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class StaffPortal extends AppCompatActivity {
 
         PersonalDetails = findViewById(R.id.Info_Button);
         BookingsPage = findViewById(R.id.View_Holiday);
+        NotificationsPage = findViewById(R.id.Notifications);
 
         PersonalDetails.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,5 +60,16 @@ public class StaffPortal extends AppCompatActivity {
                 startActivity(Bookings);
             }
         });
+
+        NotificationsPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent Notifications = new Intent(getApplicationContext(), StaffNotifications.class);
+                Notifications.putExtra("FullName", fullName);
+                startActivity(Notifications);
+            }
+        });
+
     }
 }
