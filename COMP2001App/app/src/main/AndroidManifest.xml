@@ -13,6 +13,9 @@
         android:theme="@style/Theme.COMP2001App"
         tools:targetApi="31">
         <activity
+            android:name=".StaffNotifications"
+            android:exported="false" />
+        <activity
             android:name=".NewBooking"
             android:exported="false" />
         <activity

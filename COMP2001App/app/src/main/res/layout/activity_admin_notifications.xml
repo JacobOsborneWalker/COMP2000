@@ -36,17 +36,19 @@
         android:gravity="center_horizontal">
 
         <Button
+            android:id="@+id/declineButton"
+            android:layout_width="133dp"
+            android:layout_height="68dp"
+            android:layout_marginStart="20dp"
+            android:text="Decline" />
+
+        <Button
             android:id="@+id/acceptButton"
             android:layout_width="129dp"
             android:layout_height="64dp"
             android:text="Accept" />
 
-        <Button
-            android:id="@+id/declineButton"
-            android:layout_width="133dp"
-            android:layout_height="68dp"
-            android:text="Decline"
-            android:layout_marginStart="20dp" />
+
     </LinearLayout>
 
 
